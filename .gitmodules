@@ -1,0 +1,9 @@
+[submodule "AVEngine/vendor/GLFW"]
+	path = AVEngine/vendor/GLFW
+	url = https://github.com/AVariable/glfw.git
+[submodule "AVEngine/vendor/glm"]
+	path = AVEngine/vendor/glm
+	url = https://github.com/AVariable/glm.git
+[submodule "AVEngine/vendor/stb"]
+	path = AVEngine/vendor/stb
+	url = https://github.com/AVariable/stb.git
