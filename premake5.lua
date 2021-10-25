@@ -17,11 +17,13 @@ IncludeDir = {}
 IncludeDir["AVEngine"] = "AVEngine/include"
 IncludeDir["GLFW"] = "AVEngine/vendor/GLFW/include"
 IncludeDir["Glad"] = "AVEngine/vendor/Glad/include"
-IncludeDir["stb"] = "AVEngine/vendor/stb/"
+IncludeDir["stb"] = "AVEngine/vendor/stb"
+IncludeDir["GLM"] = "AVEngine/vendor/GLM"
 
 include "AVEngine/vendor/GLFW"
 include "AVEngine/vendor/Glad"
 include "AVEngine/vendor/stb"
+include "AVEngine/vendor/GLM"
 
 project "AVEngine"
 	location "AVEngine"
@@ -52,14 +54,16 @@ project "AVEngine"
 		"%{IncludeDir.AVEngine}",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.stb}"
+		"%{IncludeDir.stb}",
+		"%{IncludeDir.GLM}"
 	}
 
 	links {
 		"GLFW",
 		"Glad",
 		"opengl32.lib",
-		"stb"
+		"stb",
+		"GLM"
 	}
 
 	filter "system:windows"
