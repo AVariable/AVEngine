@@ -4,6 +4,7 @@
 #include <sstream>
 
 #include <glad/glad.h>
+#include <glm/glm.hpp>
 
 #include "Renderer.h"
 
@@ -37,6 +38,10 @@ void Shader::SetUniform1i(const std::string& name, int value) {
 
 void Shader::SetUniform4f(const std::string& name, float value0, float value1, float value2, float value3) {
     GLCall(glUniform4f(GetUniformLocation(name), value0, value1, value2, value3));
+}
+
+void Shader::SetUniformMat4f(const std::string& name, const glm::mat4& matrix) {
+    GLCall(glUniformMatrix4fv(GetUniformLocation(name), 1, GL_FALSE, &matrix[0][0]));
 }
 
 int Shader::GetUniformLocation(const std::string& name) {

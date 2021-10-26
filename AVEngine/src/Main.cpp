@@ -1,5 +1,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 
 #include "IndexBuffer.h"
 #include "Renderer.h"
@@ -58,9 +60,12 @@ int main(int argc, char** argv) {
 
         IndexBuffer indexBuffer(indices, 6);
 
+        glm::mat4 projection = glm::ortho(-2.0f, 2.0f, -1.5f, 1.5f, -1.0f, 1.0f);
+
         Shader shader("assets/shaders/Basic.shader");
         shader.Bind();
         shader.SetUniform4f("u_Color", 0.2f, 0.3f, 0.8f, 1.0f);
+        shader.SetUniformMat4f("u_MVP", projection);
 
         Texture texture("assets/textures/texture.png");
         texture.Bind();
